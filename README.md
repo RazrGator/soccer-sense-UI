@@ -24,4 +24,4 @@ pip install flask
 ```bash
 python app.py
 ```
-5. Click the link http://127.0.0.1:5000, use CTRL+C to close
+5. Click the link http://127.0.0.1:5000 within your terminal, use CTRL+C to close
