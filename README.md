@@ -1,4 +1,4 @@
-# 1Soccer Sense Frontend UI
+# Soccer Sense Frontend UI
 
 Frontend User Experience for the Soccer Sense Application
 
