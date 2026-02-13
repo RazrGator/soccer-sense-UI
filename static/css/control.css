@@ -1,0 +1,179 @@
+/* Control Page */
+body.page-control {
+  display: block;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+  margin: 0;
+}
+
+/* Header Bar */
+.control-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(20, 20, 20, 0.8);
+  border-bottom: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.logo-small {
+  display: flex;
+  align-items: center;
+}
+
+.logo-small img {
+  height: 50px;
+  width: auto;
+}
+
+/* Status Bar */
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-family: "Orbitron", sans-serif;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-label {
+  color: var(--accent);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.status-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-off {
+  color: #ef4444;
+}
+
+.status-connected {
+  color: #22c55e;
+}
+
+/* Panels rows */
+.page-control .panels {
+  width: min(1400px, 95vw);
+  margin: 24px auto;
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(400px, 2fr) minmax(280px, 1fr);
+  gap: 24px;
+  align-items: stretch;
+  padding: 0 20px;
+}
+
+/* Panel Cards */
+.page-control .panel {
+  background: var(--surface);
+  border-radius: 14px;
+  box-shadow: var(--card-shadow);
+  border: 2px solid var(--accent);
+  padding: 24px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-control .panel h2 {
+  margin: 0 0 20px 0;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  color: var(--text);
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.02em;
+  text-align: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.page-control .panel-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  color: var(--muted);
+  font-family: "Orbitron", sans-serif;
+}
+
+/* Center Panel - Visualization */
+.panel-center {
+  background: #1a1a1a;
+}
+
+.viz-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f0f0f;
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.field-plot {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* Left Panel - Controls */
+.panel-left .panel-content {
+  justify-content: flex-start;
+}
+
+.field-info {
+  font-size: 1rem;
+  color: var(--text);
+  margin: 0;
+  padding: 12px;
+  background: rgba(249, 115, 22, 0.1);
+  border-radius: 6px;
+  border-left: 3px solid var(--accent);
+}
+
+/* Right Panel - Analytics */
+.panel-right .panel-content {
+  justify-content: flex-start;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .page-control .panels {
+    grid-template-columns: 1fr;
+  }
+  
+  .page-control .panel {
+    min-height: 400px;
+  }
+  
+  .control-header {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 20px;
+  }
+  
+  .status-bar {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .status-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

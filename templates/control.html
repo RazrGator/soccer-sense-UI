@@ -4,10 +4,74 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SoccerSense</title>
-  <!-- styling -->
+  <!-- Styling -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/control.css') }}">
 </head>
-<body class="page-home">
-<h1>Control Panel</h1>
+<body class="page-control">
+  <!-- header with recording/connection feedback -->
+  <header class="control-header">
+    <div class="logo-small">
+      <img src="{{ url_for('static', filename='media/soccersense.png') }}" alt="SoccerSense logo">
+    </div>
+    
+    <div class="status-bar">
+      <div class="status-item">
+        <span class="status-label">Recording:</span>
+        <span class="status-value status-off">OFF</span>
+      </div>
+      <div class="status-item">
+        <span class="status-label">Device:</span>
+        <span class="status-value status-connected">Connected</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3 panels -->
+  <div class="panels">
+    <!-- Left Panel: controls-->
+    <div class="panel panel-left">
+      <h2>Controls</h2>
+      <div class="panel-content">
+        <!-- Displaying inputted field size -->
+        {% if field %}
+          <p class="field-info">Field Size: {{ field.length }}m × {{ field.width }}m</p>
+        {% endif %}
+
+        <!-- DP Button -->
+        <form action="/start-DP" method="POST" style="margin-top: 20px;">
+          <button type="submit" class="btn btn-primary">Begin Data Processing</button>
+        </form>
+
+        <!-- feedback messges from Data processing-->
+        {% if session.get('error') %}
+          <div class="message message-error">{{ session.get('error') }}</div>
+        {% endif %}
+
+        {% if session.get('status') %}
+          <div class="message message-success">{{ session.get('status') }}</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Center Panel: visualizations -->
+    <div class="panel panel-center">
+      <h2>Visualization</h2>
+      <div class="panel-content">
+        <div class="viz-container">
+          <img src="{{ url_for('static', filename='media/field_plot.jpg') }}" alt="visualization" class="field-plot">
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel: Data Analysis -->
+    <div class="panel panel-right">
+      <h2>Analytics</h2>
+      <div class="panel-content">
+        <!--  -->
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
