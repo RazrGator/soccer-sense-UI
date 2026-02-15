@@ -1,6 +1,7 @@
 # Soccer Sense Frontend UI
 
 Frontend User Experience for the Soccer Sense Application
+
 Source Project: https://github.com/JRoss1013/Soccer-Sense
 
 ---
