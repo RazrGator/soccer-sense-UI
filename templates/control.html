@@ -12,7 +12,9 @@
   <!-- header with recording/connection feedback -->
   <header class="control-header">
     <div class="logo-small">
-      <img src="{{ url_for('static', filename='media/soccersense.png') }}" alt="SoccerSense logo">
+      <a href="{{ url_for('home') }}">
+        <img src="{{ url_for('static', filename='media/soccersense.png') }}" alt="SoccerSense logo">
+      </a>
     </div>
     
     <div class="status-bar">

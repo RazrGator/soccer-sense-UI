@@ -18,7 +18,7 @@ venv\Scripts\activate
 ```
 3. Install dependencies
 ```bash
-pip install flask pandas numpy matplotlib pyserial
+pip install flask pandas numpy matplotlib pyserial scipy
 ```
 4. Run the app through local host
 ```bash

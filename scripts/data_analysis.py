@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from .heatmap import generate_heatmap
 
 def trilateration_solver(anchor1, distance1, anchor2, distance2, anchor3, distance3):
   # Inputs: location of anchor i, distance i from tracked object for anchors 1 to 3
@@ -89,3 +90,6 @@ def plot_field_data(distance_data,field_length,field_width):
     print('Generating Plot.')
     field_plot.savefig('static/media/field_plot.jpg',dpi=300,bbox_inches='tight')
     field_plot.close()
+
+    # Heatmap generation
+    generate_heatmap(coordinates=coordinates[['x', 'y']], field_length=field_length, field_width=field_width, output_path='static/media/heatmap.png')
