@@ -66,7 +66,7 @@ body.page-control {
   width: min(1400px, 95vw);
   margin: 24px auto;
   display: grid;
-  grid-template-columns: minmax(280px, 1fr) minmax(400px, 2fr) minmax(280px, 1fr);
+  grid-template-columns: minmax(180px, 1fr) minmax(350px, 2fr) minmax(350px, 2fr);
   gap: 24px;
   align-items: stretch;
   padding: 0 20px;

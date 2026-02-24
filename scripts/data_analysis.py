@@ -84,6 +84,8 @@ def plot_field_data(distance_data,field_length,field_width):
     field_plot.plot(x, y, marker='o', markersize=5, linewidth=2, color='blue')
     field_plot.scatter(x[0], y[0], color='red', s=100, edgecolor='black')  # Start
     field_plot.scatter(x[-1],y[-1], color='black', s=100, marker='X')       # End
+    #.xlim(0,field_width)
+    #field_plot.ylim(0,field_length)
     print('Generating Plot.')
     field_plot.savefig('static/media/field_plot.jpg',dpi=300,bbox_inches='tight')
     field_plot.close()

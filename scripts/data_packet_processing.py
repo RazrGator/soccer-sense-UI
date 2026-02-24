@@ -2,12 +2,23 @@ import serial
 import csv
 import time
 import pandas as pd
+import numpy as np
 
 from .data_analysis import plot_field_data
 
+
+def replace_invalid_values():
+    data = pd.read_csv('data.csv')
+    data.replace(-1, np.nan, inplace=True)
+    data.interpolate(method="linear", inplace=True)
+    data.bfill()
+    data.ffill()
+    data.to_csv("data.csv", index=False)
+
+
 def collect_data(field_length,field_width):
     stop = 0
-    ser = serial.Serial('COM6', 115200)  # adjust port
+    ser = serial.Serial('COM7', 115200)  # adjust port
     time.sleep(2)
     ser.write(b"begin\n")
     print('Beginning read...')
@@ -24,6 +35,9 @@ def collect_data(field_length,field_width):
                 while index < 100: # Currently only collects 100 points
                     line = ser.readline().decode().strip()
                     data = line.split(', ')
+                    if abs(float(data[0])) > 15 or abs(float(data[1])) > 15 or abs(float(data[2])) > 15:
+                        continue
+
                     data.insert(0,str(index))
                     writer.writerow(data)
                     f.flush()
@@ -48,8 +62,9 @@ def collect_data(field_length,field_width):
 
     #ser.write(b"stop\n")
 
+    replace_invalid_values()
+
     data = pd.read_csv('data.csv')
     # User supplies field length and width via front end - ROD
     # length is Y axis, width is X axis
     plot_field_data(distance_data=data,field_length=field_length,field_width=field_width)
-
