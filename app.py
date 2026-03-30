@@ -56,5 +56,15 @@ def start_data_processing():
     # return to control panel with results
     return redirect(url_for("control"))
 
+# Downloads data.csv file
+@app.route('/download-file')
+def download_file():
+    file_path = 'data.csv' 
+    return send_file(
+        file_path,
+        as_attachment=True,
+        download_name='soccersense_data.csv'
+    )
+
 if __name__ == "__main__":
     app.run(debug=True)
